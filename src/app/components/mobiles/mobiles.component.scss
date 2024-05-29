@@ -1,0 +1,21 @@
+.imgsection {
+    height: 350px;
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.isnotAvl {
+    filter: blur(1px) grayscale(1);
+}
+
+.AddBtn,
+.BuyBtn {
+    border-radius: 20px;
+}
+
+.BuyBtn {
+    width: 120px;
+}

@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <h2 class="bg-success p-4 text-center text-white">Mobile Products</h2>
+    <div class="row">
+        <div class="col-12 mb-4" *ngFor="let mobile of mobileData">
+            <div class="card" [ngClass]="{'isnotAvl':!mobile.isAvailable}">
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="imgsection">
+                                <img *ngIf="mobile.image;else noImg" [src]="mobile.image" [alt]="mobile.name" class="img-fuid" [title]="mobile.name">
+                                <ng-template #noImg>
+                                    <img src="https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
+                                        alt="" class="img-fluid" [alt]="mobile.name" [title]="mobile.name">
+                                </ng-template>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="d-flex">
+                                <h3 class="m-2">{{mobile.name}}</h3>
+                                <span class="rating bg-warning text-white m-2 p-2" [ngClass]="{
+                                    'bg-success':mobile.rating >=4,
+                                    'bg-warning':mobile.rating>=3 &&mobile.rating<4,
+                                    'bg-danger':mobile.rating<3
+                                }">{{mobile.rating}}</span>
+                            </div>
+                            <div class="feacher">
+                                <h5 class="m-2">Key Features :</h5>
+                                <ul>
+                                    <li *ngFor="let feature of mobile.keyFeatures">{{feature}}</li>
+                                </ul>
+                            </div>
+                            <div class="addBtn d-flex justify-content-start mt-4">
+                                <button class="btn btn-outline-primary BuyBtn m-2 ">Buy Now</button>
+                                <button class="btn btn-outline-warning AddBtn m-2">Add To Card</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
